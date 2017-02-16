@@ -1,4 +1,4 @@
-
+import 'babel-polyfill';
 import React, { Component } from 'react';
 import {createStore, combineReducers,applyMiddleware,compose } from 'redux';
 import { Provider} from 'react-redux';
@@ -13,7 +13,7 @@ const store = compose(applyMiddleware(thunkMiddleware))(createStore)(reducer);
 
 export default class App extends Component {
   render() {
-	  console.log("App store ",applyMiddleware);
+	  
     return (
       <div>
         <Provider store={store}>
