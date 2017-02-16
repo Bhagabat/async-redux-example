@@ -9,8 +9,10 @@ function getData1(value) {
 	}
 export function getDataAjax(value){
 	return function (dispatch) {
-		console.log('Ajax call..................');
 		
-	    return  dispatch(getData1('1234'));
+		return fetch('https://api.ipify.org/?format=json')
+		      .then(response => response.json())
+		      .then(json =>{console.log(json); return dispatch(getData1(json.ip));})
+		
 	  }
 }
